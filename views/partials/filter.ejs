@@ -1,0 +1,19 @@
+
+
+<table>
+    <tr>
+        <th class="sn">S.N</th>
+        <th>Title</th>
+        <th>ISBN</th>
+        <th>Author</th>
+    </tr>
+    <% var n=1 %> 
+    <% newBookItem.forEach(function(book){ %>
+    <tr>
+        <td class="sn"><%= n %><% n++ %></td>
+        <td><%= book.title %></td>
+        <td><%= book.isbn %> </td>
+        <td><%= book.author %> </td>
+    </tr>   
+    <% }) %>
+</table>

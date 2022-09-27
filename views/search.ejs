@@ -1,10 +1,18 @@
 <%- include("partials/header") %>
+<% var n=1 %> 
+<table>
+    <tr>
+        <th class="sn">S.N</th>
+        <th>Title</th>
+        <th>ISBN</th>
+        <th>Author</th>
+    </tr>
+    <tr>
+        <td class="sn"><%= n %><% n++ %></td>
+        <td><%= newBookItem.title %></td>
+        <td><%= newBookItem.isbn %> </td>
+        <td><%= newBookItem.author %> </td>
+    </tr>   
 
-<div>
-    <h2>Title : <%= Title %> </h2>
-    <h2>Author : <%= aName %> </h2>
-    <h2>ISBN : <%= ISBN %> </h2>
-
-</div>
-
+</table>
 <%- include("partials/footer") %> 

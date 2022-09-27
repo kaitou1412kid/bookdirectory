@@ -10,3 +10,17 @@ h1{
 .search{
     margin: 20px 38%;
 }
+
+/* styling the table */
+table,th,td{
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+table{
+    width: 50%;
+}
+
+.sn{
+    width: 5%;
+}

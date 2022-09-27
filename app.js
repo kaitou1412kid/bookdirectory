@@ -25,7 +25,14 @@ const Book = mongoose.model("Book", bookSchema);
 
 //get the home file
 app.get("/books",function(req, res){
-    res.render("home");
+    Book.find({},function(err,foundBook){
+        if(err){
+            console.log(err);
+        }else {
+            res.render("home", {newBookItem : foundBook});
+        }
+    })
+    // res.render("home");
 });
 
 //search for books from the database
@@ -36,7 +43,7 @@ app.post("/books",function(req,res){
             if(!foundBook){
                 res.send("Book doesnt exist");
             }else {
-                res.render("search", {Title : foundBook.title, ISBN : foundBook.isbn, aName : foundBook.author});
+                res.render("search", {newBookItem: foundBook});
             }   
         }else {
             res.send(err);
