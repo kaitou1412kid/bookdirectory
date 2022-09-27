@@ -1,4 +1,8 @@
 <%- include("partials/header") %>
+<form action="/books" method="post" class="search">
+    <input type="search" placeholder="Enter ISBN number" name="searchISBN">
+    <button type="submit">Search</button>
+</form>
 <% var n=1 %> 
 <table>
     <tr>

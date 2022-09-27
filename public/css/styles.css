@@ -7,10 +7,19 @@ h1{
     margin: 20px 35%;
 }
 
-.search{
-    margin: 20px 38%;
+h2{
+    margin: 20px 30%;
 }
 
+.search, .add{
+    margin: 20px 38%;
+}
+p{
+    margin: 10px;
+}
+.submit{
+    margin: 10px;
+}
 /* styling the table */
 table,th,td{
     border: 1px solid;
