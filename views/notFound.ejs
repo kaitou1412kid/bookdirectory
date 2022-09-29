@@ -1,5 +1,7 @@
 <%- include("partials/header") %>
-<%- include("partials/bar") %> 
+<%- include("partials/bar") %>
+
+<h3>The book with ISBN number : <%= search %> is not found.</h3>
 <% var n=1 %> 
 <table>
     <tr>
@@ -10,10 +12,11 @@
     </tr>
     <tr>
         <td class="sn"><%= n %><% n++ %></td>
-        <td><%= newBookItem.title %></td>
-        <td><%= newBookItem.isbn %> </td>
-        <td><%= newBookItem.author %> </td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>   
 
 </table>
+
 <%- include("partials/footer") %> 

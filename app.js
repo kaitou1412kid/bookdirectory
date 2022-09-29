@@ -24,7 +24,7 @@ const Book = mongoose.model("Book", bookSchema);
 
 
 //get the home file
-app.get("/books",function(req, res){
+app.get("/home",function(req, res){
     Book.find({},function(err,foundBook){
         if(err){
             console.log(err);
@@ -36,21 +36,20 @@ app.get("/books",function(req, res){
 });
 
 //search for books from the database
-app.post("/books",function(req,res){
+app.post("/home",function(req,res){
     const searched = req.body.searchISBN;
     Book.findOne({isbn : searched},function(err, foundBook){
         if(!err){
             if(!foundBook){
-                res.send("Book doesnt exist");
+                res.render("notFound", {search : searched});
             }else {
                 res.render("search", {newBookItem: foundBook});
             }   
         }else {
             res.send(err);
         }
-    });
+    }); 
 });
-
 
 
 app.route("/books/:bookid").get(function(req, res){

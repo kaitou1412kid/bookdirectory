@@ -7,12 +7,15 @@ h1{
     margin: 20px 35%;
 }
 
-h2{
+h2,h3{
     margin: 20px 30%;
 }
 
 .search, .add{
     margin: 20px 38%;
+}
+.addBook{
+    margin: 20px 45%;
 }
 p{
     margin: 10px;
