@@ -51,20 +51,6 @@ app.post("/home",function(req,res){
     }); 
 });
 
-
-app.route("/books/:bookid").get(function(req, res){
-    Book.findOne(
-        {isbn : req.params.bookid},
-        function(err, foundBook){
-            if(foundBook){
-                res.send(foundBook);
-            }else {
-                res.send("No book found");
-            }
-        }
-    )
-});
-
 //get the add fle
 app.get("/add",function(req, res){
     res.render("add")
@@ -83,13 +69,13 @@ app.post("/add",function(req, res){
             if(!foundBook){
                 newBook.save(function(err){
                     if(!err){
-                        res.send("New book saved succesfully")
+                        res.redirect("/home");
                     } else {
                         res.send(err);
                     }
                 });
             }else {
-                res.send("Book is already in the system.")
+                res.redirect("/home");
             }
         }else {
             res.send(err);
@@ -97,36 +83,6 @@ app.post("/add",function(req, res){
     })
     
 });
-
-app.route("/books/:bookid").put(function(req, res){
-    Book.replaceOne(
-        {isbn : req.params.bookid},
-        {title : req.body.title,
-        author : req.body.author,
-        isbn : req.body.isbn},
-        {overwrite : true},
-        function(err){
-            if(!err){
-                res.send("Successfully Updated");
-            }
-        }
-    )
-});
-
-
-app.route("/books/:bookid").delete(function(req, res){
-    Book.deleteOne(
-        {isbn : req.params.bookid},
-        function(err){
-            if(!err){
-                res.send("Book deleted succesfully");
-            } else {
-                res.send(err);
-            }
-        }
-    )
-});
-
 
 app.listen(3000, function(){
     console.log("Server is running on port 3000");
