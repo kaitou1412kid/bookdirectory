@@ -4,15 +4,19 @@
 }
 
 h1{
-    margin: 20px 35%;
+    margin: 20px 33%;
 }
 
 h2,h3{
-    margin: 20px 30%;
+    margin: 20px 23%;
 }
 
-.search, .add{
+.search{
     margin: 20px 38%;
+    display: flex;
+}
+.add{
+    margin: 20px 35%;
 }
 .addBook{
     margin: 20px 45%;

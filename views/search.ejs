@@ -1,14 +1,14 @@
 <%- include("partials/header") %>
 <%- include("partials/bar") %> 
 <% var n=1 %> 
-<table>
+<table class="table table-striped table-hover table-bordered table-sm">
     <tr>
         <th class="sn">S.N</th>
         <th>Title</th>
         <th>ISBN</th>
         <th>Author</th>
     </tr>
-    <tr>
+    <tr class="table-active">
         <td class="sn"><%= n %><% n++ %></td>
         <td><%= newBookItem.title %></td>
         <td><%= newBookItem.isbn %> </td>
