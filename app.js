@@ -1,8 +1,11 @@
+require('dotenv').config();
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
-
+let port = process.env.PORT;
+const pass = process.env.PASSWORD;
 const app = express();
 
 app.set("view engine","ejs");
@@ -10,7 +13,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
 //connect to database
-mongoose.connect("mongodb://localhost:27017/booksDB", {useNewUrlParser:true});
+mongoose.connect("mongodb+srv://admin-kritagya:"+pass+"@cluster1.bjcgamc.mongodb.net/booksDB", {useNewUrlParser:true});
 
 //create book schema 
 const bookSchema = {
@@ -84,6 +87,10 @@ app.post("/add",function(req, res){
     
 });
 
-app.listen(3000, function(){
-    console.log("Server is running on port 3000");
+if(port == null || port == ""){
+    port = 3000;
+}
+
+app.listen(port, function(){
+    console.log("Server is running succesfully");
 });
