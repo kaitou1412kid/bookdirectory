@@ -4,7 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
-let port = process.env.PORT;
+//let port = process.env.PORT;
 const pass = process.env.PASSWORD;
 const app = express();
 
@@ -87,10 +87,10 @@ app.post("/add",function(req, res){
     
 });
 
-if(port == null || port == ""){
-    port = 3000;
-}
+// if(port == null || port == ""){
+//     port = 3000;
+// }
 
-app.listen(port, function(){
+app.listen(process.env.PORT || 3000, function(){
     console.log("Server is running succesfully");
 });
