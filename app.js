@@ -70,6 +70,10 @@ app.post("/add",function(req, res){
     Book.findOne({isbn : newBook.isbn}, function(err,foundBook){
         if(!err){
             if(!foundBook){
+                if(newBook.title == "" || newBook.author == "" || newBook.isbn == ""){
+                    res.redirect("/home");
+                }
+                else {
                 newBook.save(function(err){
                     if(!err){
                         res.redirect("/home");
@@ -77,6 +81,7 @@ app.post("/add",function(req, res){
                         res.send(err);
                     }
                 });
+            }
             }else {
                 res.redirect("/home");
             }
